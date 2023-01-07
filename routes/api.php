@@ -27,8 +27,6 @@ Route::post('/register', [AuthController::class, 'register']);
 
 Route::post('/login', [AuthController::class, 'login']);
 
-Route::get('/notice/{id}', [CurrencyController::class, 'notice']);
-
 //Protected Route
 Route::group(['middleware' => ['auth:sanctum']], function() {
 
@@ -39,6 +37,8 @@ Route::group(['middleware' => ['auth:sanctum']], function() {
     Route::get('/checkprice', [CurrencyController::class, 'checkPrice']);
 
     Route::post('/alert', [CurrencyController::class, 'alert']);
+
+    Route::get('/notice/{id}', [CurrencyController::class, 'notice']);
 
     Route::get('/invoice', [CurrencyController::class, 'invoice']);
 
